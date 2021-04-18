@@ -49,6 +49,10 @@ public class HomeController {
         model.addAttribute("cttp",toiPhamService.getElementById(idtp));
         return "chitiettoipham";
     }
+    @RequestMapping(value = "/dang-tin-truy-na")
+    public String dangTinTruyNa(Model model){
+        return "dang-tin-truy-na";
+    }
 
 
 
