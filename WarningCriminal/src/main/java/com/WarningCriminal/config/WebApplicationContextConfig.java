@@ -28,7 +28,7 @@ public class WebApplicationContextConfig implements WebMvcConfigurer {
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
 
-        registry.addResourceHandler("/TrangChu/**").addResourceLocations("/resource/TrangChu");
+
         //login
         registry.addResourceHandler("/login/**")
                 .addResourceLocations("/resources/admin/");
@@ -46,14 +46,7 @@ public class WebApplicationContextConfig implements WebMvcConfigurer {
         //admin
         registry.addResourceHandler("/admin/**").addResourceLocations("/resources/admin/");
 
-//        registry.addResourceHandler("/admin/css/**")
-//                .addResourceLocations("/resources/admin/css/");
-//        registry.addResourceHandler("/admin/fonts/**")
-//                .addResourceLocations("/resources/admin/fonts/");
-//        registry.addResourceHandler("/admin/images/**")
-//                .addResourceLocations("/resources/admin/images/");
-//        registry.addResourceHandler("/admin/js/**")
-//                .addResourceLocations("/resources/admin/js/");
+
 
     }
 
