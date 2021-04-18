@@ -2,20 +2,31 @@ package com.WarningCriminal.springmvc.pojo;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 import java.util.Objects;
 import java.util.Set;
 
 @Entity
 @Table(name = "account")
 public class Account implements Serializable {
+    @Id
+    @Column(name = "id", nullable = false, length = 100)
     private String id;
+    @Column(name = "userName", nullable = false, length = 50)
     private String userName;
+    @Column(name = "pw", nullable = false, length = 300)
     private String pw;
+    @Column(name = "status", nullable = false)
     private boolean status;
+    @Column(name = "roleID", nullable = false, length = 100)
     private String roleId;
+    @ManyToOne
+    @JoinColumn(name = "roleID", nullable = false,insertable = false,updatable = false)
     private Role role;
-    private Set<Nguoidan> nguoidans;
-    private Set<CongAn> congAns;
+    @OneToMany(mappedBy = "account")
+    private List<Nguoidan> nguoidans;
+    @OneToMany(mappedBy = "account")
+    private List<CongAn> congAns;
     @Transient
     private String confirmPw;
 
@@ -27,9 +38,7 @@ public class Account implements Serializable {
         this.confirmPw = confirmPw;
     }
 
-    @Id
-    @GeneratedValue
-    @Column(name = "id", nullable = false, length = 100)
+
     public String getId() {
         return id;
     }
@@ -38,8 +47,7 @@ public class Account implements Serializable {
         this.id = id;
     }
 
-    @Basic
-    @Column(name = "userName", nullable = false, length = 50)
+
     public String getUserName() {
         return userName;
     }
@@ -48,8 +56,7 @@ public class Account implements Serializable {
         this.userName = userName;
     }
 
-    @Basic
-    @Column(name = "pw", nullable = false, length = 300)
+
     public String getPw() {
         return pw;
     }
@@ -58,8 +65,7 @@ public class Account implements Serializable {
         this.pw = pw;
     }
 
-    @Basic
-    @Column(name = "status", nullable = false)
+
     public boolean getStatus() {
         return status;
     }
@@ -68,8 +74,7 @@ public class Account implements Serializable {
         this.status = status;
     }
 
-    @Basic
-    @Column(name = "roleID", nullable = false, length = 100)
+
     public String getRoleId() {
         return roleId;
     }
@@ -94,18 +99,8 @@ public class Account implements Serializable {
         return true;
     }
 
-    @Override
-    public int hashCode() {
-        int result = id != null ? id.hashCode() : 0;
-        result = 31 * result + (userName != null ? userName.hashCode() : 0);
-        result = 31 * result + (pw != null ? pw.hashCode() : 0);
 
-        result = 31 * result + (roleId != null ? roleId.hashCode() : 0);
-        return result;
-    }
 
-    @ManyToOne
-    @JoinColumn(name = "roleID", referencedColumnName = "id", nullable = false)
     public Role getRole() {
         return role;
     }
@@ -114,21 +109,21 @@ public class Account implements Serializable {
         this.role = role;
     }
 
-    @OneToMany(mappedBy = "account")
-    public Set<Nguoidan> getNguoidans() {
+
+    public List<Nguoidan> getNguoidans() {
         return nguoidans;
     }
 
-    public void setNguoidans(Set<Nguoidan> nguoidans) {
+    public void setNguoidans(List<Nguoidan> nguoidans) {
         this.nguoidans = nguoidans;
     }
 
-    @OneToMany(mappedBy = "account")
-    public Set<CongAn> getCongAns() {
+
+    public List<CongAn> getCongAns() {
         return congAns;
     }
 
-    public void setCongAns(Set<CongAn> congAns) {
+    public void setCongAns(List<CongAn> congAns) {
         this.congAns = congAns;
     }
 }

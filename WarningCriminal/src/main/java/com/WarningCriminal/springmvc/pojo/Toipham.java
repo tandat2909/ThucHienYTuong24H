@@ -9,20 +9,29 @@ import java.util.Objects;
 @Entity
 @Table(name = "toipham")
 public class Toipham implements Serializable {
-    private String id;
-    private String hovaTen;
-    private String ccid;
-    private String hinhAnh;
-    private Date ngaySinh;
-    private String chiTietPhamToi;
-    private boolean trangThaiBiBat;
-    private String idMucDo;
-    private List<Tintinhbao> tintinhbaos;
-    private Mucdo mucdo;
 
     @Id
-    @GeneratedValue
     @Column(name = "id", nullable = false, length = 100)
+    private String id;
+    @Column(name = "HovaTen", nullable = false, length = 100)
+    private String hovaTen;
+    @Column(name = "CCID", nullable = false, length = 45)
+    private String ccid;
+    @Column(name = "hinhAnh", nullable = true, length = 300)
+    private String hinhAnh;
+    @Column(name = "ngaySinh", nullable = true)
+    private Date ngaySinh;
+    @Column(name = "chiTietPhamToi", nullable = true, length = 500)
+    private String chiTietPhamToi;
+    @Column(name = "trangThaiBiBat", nullable = false)
+    private boolean trangThaiBiBat;
+
+    @OneToMany(mappedBy = "toipham")
+    private List<Tintinhbao> tintinhbaos;
+    @ManyToOne
+    @JoinColumn(name = "idMucDo", nullable = false)
+    private Mucdo mucdo;
+
     public String getId() {
         return id;
     }
@@ -32,9 +41,6 @@ public class Toipham implements Serializable {
     }
 
 
-
-    @Basic
-    @Column(name = "HovaTen", nullable = false, length = 100)
     public String getHovaTen() {
         return hovaTen;
     }
@@ -43,8 +49,6 @@ public class Toipham implements Serializable {
         this.hovaTen = hovaTen;
     }
 
-    @Basic
-    @Column(name = "CCID", nullable = false, length = 45)
     public String getCcid() {
         return ccid;
     }
@@ -53,8 +57,6 @@ public class Toipham implements Serializable {
         this.ccid = ccid;
     }
 
-    @Basic
-    @Column(name = "hinhAnh", nullable = true, length = 300)
     public String getHinhAnh() {
         return hinhAnh;
     }
@@ -63,8 +65,6 @@ public class Toipham implements Serializable {
         this.hinhAnh = hinhAnh;
     }
 
-    @Basic
-    @Column(name = "ngaySinh", nullable = true)
     public Date getNgaySinh() {
         return ngaySinh;
     }
@@ -73,8 +73,6 @@ public class Toipham implements Serializable {
         this.ngaySinh = ngaySinh;
     }
 
-    @Basic
-    @Column(name = "chiTietPhamToi", nullable = true, length = 500)
     public String getChiTietPhamToi() {
         return chiTietPhamToi;
     }
@@ -83,8 +81,6 @@ public class Toipham implements Serializable {
         this.chiTietPhamToi = chiTietPhamToi;
     }
 
-    @Basic
-    @Column(name = "trangThaiBiBat", nullable = false)
     public boolean getTrangThaiBiBat() {
         return trangThaiBiBat;
     }
@@ -93,15 +89,6 @@ public class Toipham implements Serializable {
         this.trangThaiBiBat = trangThaiBiBat;
     }
 
-    @Basic
-    @Column(name = "idMucDo", nullable = false, length = 100)
-    public String getIdMucDo() {
-        return idMucDo;
-    }
-
-    public void setIdMucDo(String idMucDo) {
-        this.idMucDo = idMucDo;
-    }
 
     @Override
     public boolean equals(Object o) {
@@ -118,7 +105,7 @@ public class Toipham implements Serializable {
         if (!Objects.equals(ngaySinh, toipham.ngaySinh)) return false;
         if (!Objects.equals(chiTietPhamToi, toipham.chiTietPhamToi))
             return false;
-        if (!Objects.equals(idMucDo, toipham.idMucDo)) return false;
+
 
         return true;
     }
@@ -131,11 +118,11 @@ public class Toipham implements Serializable {
         result = 31 * result + (hinhAnh != null ? hinhAnh.hashCode() : 0);
         result = 31 * result + (ngaySinh != null ? ngaySinh.hashCode() : 0);
         result = 31 * result + (chiTietPhamToi != null ? chiTietPhamToi.hashCode() : 0);
-        result = 31 * result + (idMucDo != null ? idMucDo.hashCode() : 0);
+
         return result;
     }
 
-    @OneToMany(mappedBy = "toipham")
+
     public List<Tintinhbao> getTintinhbaos() {
         return tintinhbaos;
     }
@@ -144,8 +131,7 @@ public class Toipham implements Serializable {
         this.tintinhbaos = tintinhbaos;
     }
 
-    @ManyToOne
-    @JoinColumn(name = "idMucDo", referencedColumnName = "id", nullable = false)
+
     public Mucdo getMucdo() {
         return mucdo;
     }

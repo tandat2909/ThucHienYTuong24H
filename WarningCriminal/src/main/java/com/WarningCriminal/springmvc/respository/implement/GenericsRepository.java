@@ -52,6 +52,7 @@ abstract class GenericsRepository<T, K extends Serializable> implements IGeneric
     @Transactional
     @Override
     public List<T> getAll() {
+        System.out.println(getClassType().getSimpleName());
         return currentSession().createQuery("from " + getClassType().getSimpleName()).getResultList();
 
     }

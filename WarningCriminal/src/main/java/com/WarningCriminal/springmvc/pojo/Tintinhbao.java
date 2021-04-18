@@ -9,14 +9,16 @@ public class Tintinhbao implements Serializable {
     @Id
     @Column(name = "id", nullable = false, length = 100)
     private String id;
+    @Column(name = "NoiDungTinhBao", nullable = true, length = 500)
     private String noiDungTinhBao;
-    private String idToiPham;
-    private String idNguoiDan;
+
+    @ManyToOne
+    @JoinColumn(name = "idToiPham", nullable = false)
     private Toipham toipham;
+    @ManyToOne
+    @JoinColumn(name = "idNguoiDan", nullable = false)
     private Nguoidan nguoidan;
 
-    @Id
-    @GeneratedValue
     public String getId() {
         return id;
     }
@@ -25,8 +27,8 @@ public class Tintinhbao implements Serializable {
         this.id = id;
     }
 
-    @Basic
-    @Column(name = "NoiDungTinhBao", nullable = true, length = 500)
+
+
     public String getNoiDungTinhBao() {
         return noiDungTinhBao;
     }
@@ -35,25 +37,8 @@ public class Tintinhbao implements Serializable {
         this.noiDungTinhBao = noiDungTinhBao;
     }
 
-    @Basic
-    @Column(name = "idToiPham", nullable = false, length = 100)
-    public String getIdToiPham() {
-        return idToiPham;
-    }
 
-    public void setIdToiPham(String idToiPham) {
-        this.idToiPham = idToiPham;
-    }
 
-    @Basic
-    @Column(name = "idNguoiDan", nullable = false, length = 100)
-    public String getIdNguoiDan() {
-        return idNguoiDan;
-    }
-
-    public void setIdNguoiDan(String idNguoiDan) {
-        this.idNguoiDan = idNguoiDan;
-    }
 
     @Override
     public boolean equals(Object o) {
@@ -65,8 +50,7 @@ public class Tintinhbao implements Serializable {
         if (id != null ? !id.equals(that.id) : that.id != null) return false;
         if (noiDungTinhBao != null ? !noiDungTinhBao.equals(that.noiDungTinhBao) : that.noiDungTinhBao != null)
             return false;
-        if (idToiPham != null ? !idToiPham.equals(that.idToiPham) : that.idToiPham != null) return false;
-        if (idNguoiDan != null ? !idNguoiDan.equals(that.idNguoiDan) : that.idNguoiDan != null) return false;
+
 
         return true;
     }
@@ -75,13 +59,11 @@ public class Tintinhbao implements Serializable {
     public int hashCode() {
         int result = id != null ? id.hashCode() : 0;
         result = 31 * result + (noiDungTinhBao != null ? noiDungTinhBao.hashCode() : 0);
-        result = 31 * result + (idToiPham != null ? idToiPham.hashCode() : 0);
-        result = 31 * result + (idNguoiDan != null ? idNguoiDan.hashCode() : 0);
+
         return result;
     }
 
-    @ManyToOne
-    @JoinColumn(name = "idToiPham", referencedColumnName = "id", nullable = false)
+
     public Toipham getToipham() {
         return toipham;
     }
@@ -90,8 +72,7 @@ public class Tintinhbao implements Serializable {
         this.toipham = toipham;
     }
 
-    @ManyToOne
-    @JoinColumn(name = "idNguoiDan", referencedColumnName = "id", nullable = false)
+
     public Nguoidan getNguoidan() {
         return nguoidan;
     }
@@ -105,8 +86,6 @@ public class Tintinhbao implements Serializable {
         return "Tintinhbao{" +
                 "id='" + id + '\'' +
                 ", noiDungTinhBao='" + noiDungTinhBao + '\'' +
-                ", idToiPham='" + idToiPham + '\'' +
-                ", idNguoiDan='" + idNguoiDan + '\'' +
                 ", toipham=" + toipham.getHovaTen() +
                 ", nguoidan=" + nguoidan.getHovaTen() +
                 '}';
