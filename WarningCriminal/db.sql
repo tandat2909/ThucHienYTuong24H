@@ -40,6 +40,7 @@ CREATE TABLE `account` (
 
 LOCK TABLES `account` WRITE;
 /*!40000 ALTER TABLE `account` DISABLE KEYS */;
+INSERT INTO `account` VALUES ('1dca4916-7d57-441f-9e4d-b88cba47c7be','tandat1','$2a$10$mZRf4UFGRapLedL.UfSNgug1HBhyZYd8SLQ20ogjoeUJzyLDSmud2',1,'ROLE_NGUOIDAN'),('88f3cb48-3621-47a9-a62e-8b05fd393d90','tandat','$2a$10$RtayXdbmi43rjPg/cc1BROKPB0Y5lid/zMgn1hwDrIAqq9kdfZAay',1,'ROLE_NGUOIDAN');
 /*!40000 ALTER TABLE `account` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -93,6 +94,7 @@ CREATE TABLE `mucdo` (
 
 LOCK TABLES `mucdo` WRITE;
 /*!40000 ALTER TABLE `mucdo` DISABLE KEYS */;
+INSERT INTO `mucdo` VALUES ('itnghiemtrong','Ít Nghiêm Trọng'),('nghiemtrong','Nghiêm Trọng'),('ratnghiemtrong','Rất Nghiêm Trọng');
 /*!40000 ALTER TABLE `mucdo` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -122,6 +124,7 @@ CREATE TABLE `nguoidan` (
 
 LOCK TABLES `nguoidan` WRITE;
 /*!40000 ALTER TABLE `nguoidan` DISABLE KEYS */;
+INSERT INTO `nguoidan` VALUES ('11fee0e7-eb2b-4cf3-b6c0-06659e3193ca',NULL,'333333333',0,NULL,'1dca4916-7d57-441f-9e4d-b88cba47c7be'),('e880a543-94e5-4928-8c4d-72995727cc98',NULL,'234242422',0,NULL,'88f3cb48-3621-47a9-a62e-8b05fd393d90');
 /*!40000 ALTER TABLE `nguoidan` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -218,6 +221,27 @@ CREATE TABLE `toipham` (
                            `chiTietPhamToi` varchar(500) DEFAULT NULL,
                            `trangThaiBiBat` tinyint NOT NULL DEFAULT '0' COMMENT 'Tội phạm chưa bắt',
                            `idMucDo` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+                           `gioitinh` varchar(45) DEFAULT NULL,
+                           `noisinh` varchar(45) DEFAULT NULL,
+                           `hokhauthuongtru` varchar(500) DEFAULT NULL,
+                           `quoctich` varchar(45) DEFAULT NULL,
+                           `dantoc` varchar(45) DEFAULT NULL,
+                           `hotenbo` varchar(100) DEFAULT NULL,
+                           `hotenme` varchar(100) DEFAULT NULL,
+                           `mauda` varchar(45) DEFAULT NULL,
+                           `chieucao` varchar(45) DEFAULT NULL,
+                           `dacdiemmaitoc` varchar(500) DEFAULT NULL,
+                           `dacdiemlongmay` varchar(500) DEFAULT NULL,
+                           `dacdiemmui` varchar(500) DEFAULT NULL,
+                           `dacdiemtai` varchar(500) DEFAULT NULL,
+                           `dacdiemmat` varchar(500) DEFAULT NULL,
+                           `dacdiemkhac` varchar(500) DEFAULT NULL,
+                           `toidanh` varchar(500) DEFAULT NULL,
+                           `heloaitoidanh` varchar(500) DEFAULT NULL,
+                           `phamvitruyna` varchar(500) DEFAULT NULL,
+                           `quyetdinhtruyna` varchar(500) DEFAULT NULL,
+                           `donviraquyetdinh` varchar(500) DEFAULT NULL,
+                           `baochodonvi` varchar(500) DEFAULT NULL,
                            PRIMARY KEY (`id`),
                            KEY `fk_ToiPham_MucDo1_idx` (`idMucDo`),
                            CONSTRAINT `fk_ToiPham_MucDo1` FOREIGN KEY (`idMucDo`) REFERENCES `mucdo` (`id`)
@@ -230,6 +254,7 @@ CREATE TABLE `toipham` (
 
 LOCK TABLES `toipham` WRITE;
 /*!40000 ALTER TABLE `toipham` DISABLE KEYS */;
+INSERT INTO `toipham` VALUES ('1','Mai Ngọc Linh','2','sss.jpg','1992-01-01','Tội lừa đảo chiếm đoạt tài sản',0,'nghiemtrong','Nam','Châu Thành, Hậu Giang','ấp Phú Thạnh, thị trấn Mái Dầm, Châu Thành, Hậu Giang','Việt Nam',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'Tội lừa đảo chiếm đoạt tài sản','Ma tuý',NULL,'Số 06/ Ngày 14/12/2019','	CA huyện Phụng Hiệp, CA tỉnh Hậu Giang',NULL),('2','Lê Quốc Khánh','3',NULL,'1989-01-01','Tội trộm cắp tài sản',0,'itnghiemtrong','Nam','Phụng Hiệp, Hậu Giang','ấp Tân Long, xã Hòa Mỹ, Phụng Hiệp, Hậu Giang','Việt Nam',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'Tội trộm cắp tài sản','Ma tuý',NULL,'Số 05/ Ngày 13/12/2019','CA huyện Phụng Hiệp, CA tỉnh Hậu Giang',NULL),('3','Nguyễn Ngọc Toàn','4',NULL,'1999-01-01','Tội trộm cắp tài sản',0,'itnghiemtrong','Nam','	Đà Nẵng','	Tổ 34, phường Hòa Hiệp Nam, Liên Chiểu, Đà Nẵng','Việt Nam','Kinh','Đăng Ngọc Thành','Nguyễn Thị Bảy',NULL,'	1m',NULL,NULL,NULL,NULL,NULL,NULL,'Trộm cắp tài sản','Hình sự','	Địa phương','Số 04/ Ngày 11/12/2019','	CA Huyện Hoà Vang, CA TP. Đà Nẵng',NULL),('4','Nguyễn Đình Long','5',NULL,'1989-01-01','Tội lừa đảo chiếm đoạt tài sản',0,'nghiemtrong','Nam','Hải phòng','Thuận thiên, Kiến Thuỵ, Hải Phòng','Việt Nam','Kinh','Nguyễn Đình Phóng','Nguyễn Thị Gọn',NULL,NULL,NULL,NULL,NULL,NULL,NULL,'Nốt ruồi cách 1cm dưới trước mép phải','Tội lừa đảo chiếm đoạt tài sản','Ma tuý','Toàn quốc','Số 07/ Ngày 11/12/2019','Cơ quan CSĐT, CA TP. Hải Phòng','	Cục CSĐT TP về TTXH - Bộ Công an'),('5','Trần Thị Cẩm Tiên','6',NULL,'1995-01-01','Tội mua bán trái phép chất ma túy',0,'nghiemtrong','Nữ','Tỉnh Tiền Giang','	ấp Tân Thạnh, xã Tân Lý Tây, Châu Thành, Tiền Giang','Việt Nam','Kinh','Trần Hồng Vân','Hồ Thị Hoa',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'	Tội mua bán trái phép chất ma túy','Ma tuý','Toàn quốc','Số 20/ Ngày 10/12/2019','Cơ quan Thi Hành án Hình Sự, CA tỉnh Tiền Giang','Cục CSĐT TP về TTXH - Bộ Công an'),('6','Huỳnh Văn Kiệu','7',NULL,'1984-01-01','Tội cố ý gây thương tích hoặc gây tổn hại cho sức khỏe của người khác',0,'nghiemtrong','Nam','Tỉnh Tiền Giang','ấp 1, xã Tân Bình, TX Cai Lậy, tỉnh Tiền Giang','Việt Nam','Kinh','	Huỳnh Văn Thảo','Nguyễn Thị Hoa',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'	Tội cố ý gây thương tích hoặc gây tổn hại cho sức khỏe của người khác','Hình sự ','Toàn quốc','	Số 3709/ Ngày 09/12/2019','CA thị xã Cai Lậy, CA tỉnh Tiền Giang','Cục CSĐT TP về TTXH - Bộ Công an');
 /*!40000 ALTER TABLE `toipham` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -242,4 +267,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-04-17 17:24:21
+-- Dump completed on 2021-04-18 11:25:41

@@ -62,7 +62,7 @@ public class AccountService extends GenericsService<Account, String> implements 
         Account users = null;
 
         try {
-            for (Field f :Account.class.getDeclaredFields()) System.out.println(f.getName());
+
             users = getElementsByKeyWordOnField(username, Account.class.getDeclaredField("userName")).get(0);
 
         } catch (NoSuchFieldException e) {
