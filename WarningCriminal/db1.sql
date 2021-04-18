@@ -23,14 +23,14 @@ DROP TABLE IF EXISTS `account`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `account` (
-                           `id` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-                           `userName` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-                           `pw` varchar(300) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-                           `status` tinyint NOT NULL DEFAULT '1' COMMENT '1 active\\\\n0 inactive',
-                           `roleID` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-                           PRIMARY KEY (`id`),
-                           KEY `fk_account_role1_idx` (`roleID`),
-                           CONSTRAINT `fk_account_role1` FOREIGN KEY (`roleID`) REFERENCES `role` (`id`)
+  `id` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `userName` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `pw` varchar(300) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `status` tinyint NOT NULL DEFAULT '1' COMMENT '1 active\\\\n0 inactive',
+  `roleID` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_account_role1_idx` (`roleID`),
+  CONSTRAINT `fk_account_role1` FOREIGN KEY (`roleID`) REFERENCES `role` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='thông tin tài khoản';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -52,16 +52,16 @@ DROP TABLE IF EXISTS `congan`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `congan` (
-                          `id` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-                          `HovaTen` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-                          `soHieuQuanNhan` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-                          `email` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
-                          `sdt` varchar(40) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
-                          `accountID` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-                          PRIMARY KEY (`id`),
-                          UNIQUE KEY `account_accountID_UNIQUE` (`accountID`),
-                          KEY `fk_customer_account_idx` (`accountID`),
-                          CONSTRAINT `fk_customer_account` FOREIGN KEY (`accountID`) REFERENCES `account` (`id`)
+  `id` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `HovaTen` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `soHieuQuanNhan` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `email` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `sdt` varchar(40) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `accountID` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `account_accountID_UNIQUE` (`accountID`),
+  KEY `fk_customer_account_idx` (`accountID`),
+  CONSTRAINT `fk_customer_account` FOREIGN KEY (`accountID`) REFERENCES `account` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='bảnh lưu khách hàng';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -82,9 +82,9 @@ DROP TABLE IF EXISTS `mucdo`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `mucdo` (
-                         `id` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-                         `tenMucDo` varchar(100) NOT NULL,
-                         PRIMARY KEY (`id`)
+  `id` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `tenMucDo` varchar(100) NOT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -106,15 +106,15 @@ DROP TABLE IF EXISTS `nguoidan`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `nguoidan` (
-                            `id` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-                            `HovaTen` varchar(45) DEFAULT NULL,
-                            `CCCD` varchar(45) DEFAULT NULL,
-                            `trangthaixacthucnguoidan` tinyint NOT NULL DEFAULT '0',
-                            `diachi` varchar(100) DEFAULT NULL,
-                            `account_id` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-                            PRIMARY KEY (`id`),
-                            KEY `fk_NguoiDan_account1_idx` (`account_id`),
-                            CONSTRAINT `fk_NguoiDan_account1` FOREIGN KEY (`account_id`) REFERENCES `account` (`id`)
+  `id` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `HovaTen` varchar(45) DEFAULT NULL,
+  `CCCD` varchar(45) DEFAULT NULL,
+  `trangthaixacthucnguoidan` tinyint NOT NULL DEFAULT '0',
+  `diachi` varchar(100) DEFAULT NULL,
+  `account_id` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_NguoiDan_account1_idx` (`account_id`),
+  CONSTRAINT `fk_NguoiDan_account1` FOREIGN KEY (`account_id`) REFERENCES `account` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -136,10 +136,10 @@ DROP TABLE IF EXISTS `role`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `role` (
-                        `id` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-                        `name` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-                        `description` varbinary(300) DEFAULT NULL,
-                        PRIMARY KEY (`id`)
+  `id` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `name` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `description` varbinary(300) DEFAULT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -161,9 +161,9 @@ DROP TABLE IF EXISTS `sysconfig`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `sysconfig` (
-                             `key` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-                             `value` varchar(100) NOT NULL,
-                             PRIMARY KEY (`key`)
+  `key` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `value` varchar(100) NOT NULL,
+  PRIMARY KEY (`key`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -184,15 +184,15 @@ DROP TABLE IF EXISTS `tintinhbao`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `tintinhbao` (
-                              `id` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-                              `NoiDungTinhBao` varchar(500) DEFAULT NULL,
-                              `idToiPham` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-                              `idNguoiDan` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-                              PRIMARY KEY (`id`),
-                              KEY `fk_TinTinhBao_ToiPham1_idx` (`idToiPham`),
-                              KEY `fk_TinTinhBao_NguoiDan1_idx` (`idNguoiDan`),
-                              CONSTRAINT `fk_TinTinhBao_NguoiDan1` FOREIGN KEY (`idNguoiDan`) REFERENCES `nguoidan` (`id`),
-                              CONSTRAINT `fk_TinTinhBao_ToiPham1` FOREIGN KEY (`idToiPham`) REFERENCES `toipham` (`id`)
+  `id` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `NoiDungTinhBao` varchar(500) DEFAULT NULL,
+  `idToiPham` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `idNguoiDan` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_TinTinhBao_ToiPham1_idx` (`idToiPham`),
+  KEY `fk_TinTinhBao_NguoiDan1_idx` (`idNguoiDan`),
+  CONSTRAINT `fk_TinTinhBao_NguoiDan1` FOREIGN KEY (`idNguoiDan`) REFERENCES `nguoidan` (`id`),
+  CONSTRAINT `fk_TinTinhBao_ToiPham1` FOREIGN KEY (`idToiPham`) REFERENCES `toipham` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -213,38 +213,38 @@ DROP TABLE IF EXISTS `toipham`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `toipham` (
-                           `id` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-                           `HovaTen` varchar(100) NOT NULL,
-                           `CCID` varchar(45) NOT NULL,
-                           `hinhAnh` varchar(300) DEFAULT NULL,
-                           `ngaySinh` date DEFAULT NULL,
-                           `chiTietPhamToi` varchar(500) DEFAULT NULL,
-                           `trangThaiBiBat` tinyint NOT NULL DEFAULT '0' COMMENT 'Tội phạm chưa bắt',
-                           `idMucDo` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-                           `gioitinh` varchar(45) DEFAULT NULL,
-                           `noisinh` varchar(45) DEFAULT NULL,
-                           `hokhauthuongtru` varchar(500) DEFAULT NULL,
-                           `quoctich` varchar(45) DEFAULT NULL,
-                           `dantoc` varchar(45) DEFAULT NULL,
-                           `hotenbo` varchar(100) DEFAULT NULL,
-                           `hotenme` varchar(100) DEFAULT NULL,
-                           `mauda` varchar(45) DEFAULT NULL,
-                           `chieucao` varchar(45) DEFAULT NULL,
-                           `dacdiemmaitoc` varchar(500) DEFAULT NULL,
-                           `dacdiemlongmay` varchar(500) DEFAULT NULL,
-                           `dacdiemmui` varchar(500) DEFAULT NULL,
-                           `dacdiemtai` varchar(500) DEFAULT NULL,
-                           `dacdiemmat` varchar(500) DEFAULT NULL,
-                           `dacdiemkhac` varchar(500) DEFAULT NULL,
-                           `toidanh` varchar(500) DEFAULT NULL,
-                           `heloaitoidanh` varchar(500) DEFAULT NULL,
-                           `phamvitruyna` varchar(500) DEFAULT NULL,
-                           `quyetdinhtruyna` varchar(500) DEFAULT NULL,
-                           `donviraquyetdinh` varchar(500) DEFAULT NULL,
-                           `baochodonvi` varchar(500) DEFAULT NULL,
-                           PRIMARY KEY (`id`),
-                           KEY `fk_ToiPham_MucDo1_idx` (`idMucDo`),
-                           CONSTRAINT `fk_ToiPham_MucDo1` FOREIGN KEY (`idMucDo`) REFERENCES `mucdo` (`id`)
+  `id` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `HovaTen` varchar(100) NOT NULL,
+  `CCID` varchar(45) NOT NULL,
+  `hinhAnh` varchar(300) DEFAULT NULL,
+  `ngaySinh` date DEFAULT NULL,
+  `chiTietPhamToi` varchar(500) DEFAULT NULL,
+  `trangThaiBiBat` tinyint NOT NULL DEFAULT '0' COMMENT 'Tội phạm chưa bắt',
+  `idMucDo` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `gioitinh` varchar(45) DEFAULT NULL,
+  `noisinh` varchar(45) DEFAULT NULL,
+  `hokhauthuongtru` varchar(500) DEFAULT NULL,
+  `quoctich` varchar(45) DEFAULT NULL,
+  `dantoc` varchar(45) DEFAULT NULL,
+  `hotenbo` varchar(100) DEFAULT NULL,
+  `hotenme` varchar(100) DEFAULT NULL,
+  `mauda` varchar(45) DEFAULT NULL,
+  `chieucao` varchar(45) DEFAULT NULL,
+  `dacdiemmaitoc` varchar(500) DEFAULT NULL,
+  `dacdiemlongmay` varchar(500) DEFAULT NULL,
+  `dacdiemmui` varchar(500) DEFAULT NULL,
+  `dacdiemtai` varchar(500) DEFAULT NULL,
+  `dacdiemmat` varchar(500) DEFAULT NULL,
+  `dacdiemkhac` varchar(500) DEFAULT NULL,
+  `toidanh` varchar(500) DEFAULT NULL,
+  `heloaitoidanh` varchar(500) DEFAULT NULL,
+  `phamvitruyna` varchar(500) DEFAULT NULL,
+  `quyetdinhtruyna` varchar(500) DEFAULT NULL,
+  `donviraquyetdinh` varchar(500) DEFAULT NULL,
+  `baochodonvi` varchar(500) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_ToiPham_MucDo1_idx` (`idMucDo`),
+  CONSTRAINT `fk_ToiPham_MucDo1` FOREIGN KEY (`idMucDo`) REFERENCES `mucdo` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -267,4 +267,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-04-18 13:24:58
+-- Dump completed on 2021-04-18 13:31:13
