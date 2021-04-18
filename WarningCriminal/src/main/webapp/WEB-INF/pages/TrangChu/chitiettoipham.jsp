@@ -50,8 +50,8 @@
             <i>(Mức độ phạm tội :${cttp.mucdo.tenMucDo})</i>
             <br>
 
+            <a href="${pageContext.request.contextPath}/?btid=${cttp.id}#guitintinhbao" target="_blank"><button>Báo Tin</button></a>
 
-            <input type="submit" name="btnSendMail" value="Báo tin" id="btnSendMail">
 
         </div>
         <table class="table-detail">

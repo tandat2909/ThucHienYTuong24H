@@ -112,46 +112,25 @@
                                     <h3 class="panel-title"><span class="fa fa-pencil-square-o"></span>Gửi Tình Báo Tội Phạm Đến Cảnh Sát</h3>
                                 </div>
                                 <div class="panel-body">
-                                    <form role="form" class="lead">
+                                    <%--@elvariable id="tintinhbao" type="com.WarningCriminal.springmvc.modelView.TinTinhBao"--%>
+                                    <form role="form" class="lead" >
                                         <div class="row">
                                             <div class="col-xs-6 col-sm-6 col-md-6">
                                                 <div class="form-group">
-                                                    <label>Họ</label>
-                                                    <input type="text" name="last_name" id="last_name" class="form-control input-md">
+                                                    <label>Họ và Tên</label>
+                                                    <input disabled type="text" name="last_name" value="${account.userName}" id="last_name" class="form-control input-md">
                                                 </div>
-                                            </div>
-                                            <div class="col-xs-6 col-sm-6 col-md-6">
                                                 <div class="form-group">
-                                                    <label>Tên</label>
-                                                    <input type="text" name="first_name" id="first_name" class="form-control input-md">
+                                                    <label>Tên Tội Phạm</label>
+                                                    <input  type="text" name="last_name" value="" id="tp" class="form-control input-md">
                                                 </div>
                                             </div>
+
                                         </div>
-                                        <div class="row">
-                                            <div class="col-xs-6 col-sm-6 col-md-6">
-                                                <div class="form-group">
-                                                    <label>Số Điện Thoại</label>
-                                                    <input type="text" name="phone" id="phone" class="form-control input-md">
-                                                </div>
-                                            </div>
-                                            <div class="col-xs-6 col-sm-6 col-md-6">
-                                                <div class="form-group">
-                                                    <label>Email</label>
-                                                    <input type="email" name="email" id="email" class="form-control input-md">
-                                                </div>
-                                            </div>
-                                        </div><br/>
                                         <div class="row">
                                             <div class="col-xs-10 col-sm-10 col-md-10">
                                                 <div class="form-group">
-                                                    <label>Tên tội phạm</label>
-                                                    <select class="form-select" aria-label="Default select example">
-                                                        <option selected disabled>Chọn tên tội phạm</option>
-                                                            <c:forEach items="${lstoipham}" var="tp">
-                                                                <option value="${tp.id}">${tp.hovaTen}</option>
-
-                                                            </c:forEach>
-                                                    </select>
+                                                    
                                                 </div>
                                             </div>
                                         </div>
