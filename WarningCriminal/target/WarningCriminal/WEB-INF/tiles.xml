@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache
+Software Foundation//DTD Tiles Configuration 3.0//EN"
+        "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+<tiles-definitions>
+   <!-- template Trang chủ-->
+    <definition name="baseLayout"
+                template="/WEB-INF/layout/TrangChu/base.jsp">
+        <put-attribute name="title" value="ứng dụng tình báo tôi phạm" />
+        <put-attribute name="header"
+                       value="/WEB-INF/layout/TrangChu/header.jsp" />
+        <put-attribute name="content" value="base" />
+        <put-attribute name="footer"
+                       value="/WEB-INF/layout/TrangChu/footer.jsp" />
+    </definition>
+
+    <definition name="TrangChu" extends="baseLayout">
+        <put-attribute name="title" value="Trang chủ" />
+        <put-attribute name="content"
+                       value="/WEB-INF/pages/TrangChu/TrangChu.jsp" />
+    </definition>
+    <definition name="template_login" template="/WEB-INF/pages/login.jsp" >
+        <put-attribute name="title" value="Login"/>
+        <put-attribute name="content"
+                       value="/WEB-INF/pages/login.jsp"/>
+    </definition>
+    <definition name="template_signup" template="/WEB-INF/pages/SignUpCustomer.jsp" >
+        <put-attribute name="title" value="Sign Up"/>
+    </definition>
+    <definition name="chitiettoipham" template="/WEB-INF/pages/TrangChu/chitiettoipham.jsp">
+
+    </definition>
+
+</tiles-definitions>
