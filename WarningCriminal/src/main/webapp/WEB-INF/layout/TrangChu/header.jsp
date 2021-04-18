@@ -20,9 +20,7 @@
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
                 <i class="fa fa-bars"></i>
             </button>
-            <a class="navbar-brand" href="/">
-                <img style="width: 180px" src="<c:url value="/resources/TrangChu/img/logo.png"/>" alt="" width="150" height="40"/>
-            </a>
+
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->

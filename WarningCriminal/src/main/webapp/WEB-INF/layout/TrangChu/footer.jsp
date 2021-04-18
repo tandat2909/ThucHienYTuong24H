@@ -7,8 +7,8 @@
             <div class="col-sm-6 col-md-4">
                 <div class="wow fadeInDown" data-wow-delay="0.1s">
                     <div class="widget">
-                        <h5>Phòng Mạch Huy Trọng</h5>
-                        <p>Cung cấp chất lượng chăm sóc sức khỏe tốt nhất cho bạn</p>
+                        <h5>TÌNH BÁO TỘI PHẠM</h5>
+                        <p>Cập nhật thông tin tội phạm và tình báo</p>
                     </div>
                 </div>
                 <div class="wow fadeInDown" data-wow-delay="0.1s">
@@ -16,9 +16,9 @@
                         <h5>Thông tin</h5>
                         <ul>
                             <li><a href="#">Trang chủ</a></li>
-                            <li><a href="#">Phòng thí nghiệm</a></li>
-                            <li><a href="#">Điều trị y tế</a></li>
-                            <li><a href="#">Điều khoản</a></li>
+                            <li><a href="#">Gửi tình báo</a></li>
+                            <li><a href="#">Tội phạm truy nã</a></li>
+                            <li><a href="#">login</a></li>
                         </ul>
                     </div>
                 </div>
@@ -26,14 +26,14 @@
             <div class="col-sm-6 col-md-4">
                 <div class="wow fadeInDown" data-wow-delay="0.1s">
                     <div class="widget">
-                        <h5>Trung tâm phòng mạch</h5>
-                        <p>Cung cấp chất lượng chăm sóc sức khỏe tốt nhất cho bạn</p>
+                        <h5>Trung tâm tình báo</h5>
+                        <p>Thông tin của người dân được bảo mật tuyệt đối.</p>
                         <ul>
                             <li>
                                     <span class="fa-stack fa-lg">
                                         <i class="fa fa-circle fa-stack-2x"></i>
                                         <i class="fa fa-calendar-o fa-stack-1x fa-inverse"></i>
-                                    </span> Thứ 2 - Thứ 7, 8:00 đến 22:00
+                                    </span> Cảnh sát thường trực 24/24
                             </li>
                             <li>
                                     <span class="fa-stack fa-lg">
@@ -54,8 +54,8 @@
             <div class="col-sm-6 col-md-4">
                 <div class="wow fadeInDown" data-wow-delay="0.1s">
                     <div class="widget">
-                        <h5>Địa điểm của chúng tôi</h5>
-                        <p>Cung cấp chất lượng chăm sóc sức khỏe tốt nhất cho bạn</p>
+                        <h5>Báo Khẩn</h5>
+                        <p>Đội SOS sẽ có mặt trong còng 30s</p>
                     </div>
                 </div>
                 <div class="wow fadeInDown" data-wow-delay="0.1s">
