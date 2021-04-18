@@ -27,23 +27,19 @@ public class WebApplicationContextConfig implements WebMvcConfigurer {
 
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        /*registry.addResourceHandler("/css/**")
-                .addResourceLocations("/resources/css/");
-        registry.addResourceHandler("/img/**")
-                .addResourceLocations("/resources/images/");
-        registry.addResourceHandler("/js/**")
-                .addResourceLocations("/resources/js/");*/
+
+        registry.addResourceHandler("/TrangChu/**").addResourceLocations("/resource/TrangChu");
         //login
         registry.addResourceHandler("/login/**")
                 .addResourceLocations("/resources/admin/");
 
-        //Trang chu
-//        registry.addResourceHandler("/TrangChu/css/**")
-//                .addResourceLocations("/resources/TrangChu/css/");
-//        registry.addResourceHandler("/TrangChu/img/**")
-//                .addResourceLocations("/resources/TrangChu/images/");
-//        registry.addResourceHandler("/TrangChu/fonts/**")
-//                .addResourceLocations("/resources/TrangChu/fonts/");
+//        Trang chu
+        registry.addResourceHandler("/css/**")
+                .addResourceLocations("/resources/TrangChu/css/");
+        registry.addResourceHandler("/img/**")
+                .addResourceLocations("/resources/TrangChu/img/");
+        registry.addResourceHandler("/fonts/**")
+                .addResourceLocations("/resources/TrangChu/fonts/");
 
         registry.addResourceHandler("/TrangChu/**").addResourceLocations("/resources/TrangChu/");
         registry.addResourceHandler("/pages/**").addResourceLocations("/WEB-INF/pages/");
