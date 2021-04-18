@@ -23,7 +23,7 @@ public class HibernateConfig {
     @Bean
     public LocalSessionFactoryBean getSessionFactory() {
         LocalSessionFactoryBean factory = new LocalSessionFactoryBean();
-        factory.setPackagesToScan(new String[]{"com.travels.springmvc.pojo"});
+        factory.setPackagesToScan(new String[]{"com.WarningCriminal.springmvc.pojo"});
         factory.setDataSource(dataSource());
         factory.setHibernateProperties(properties());
         return factory;

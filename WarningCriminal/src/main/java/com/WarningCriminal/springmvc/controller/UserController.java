@@ -45,7 +45,7 @@ public class UserController {
                                       BindingResult result, RedirectAttributes attr) {
 
         try {
-            if (accountService.createAccount(user.getAccount(), user.getCustomer())) {
+            if (accountService.createAccount(user.getAccount(), user.getNguoiDan())) {
                 attr.addFlashAttribute("success","Chúc mừng bạn tạo tài khoản thành công");
             }
         } catch (Exception exception) {

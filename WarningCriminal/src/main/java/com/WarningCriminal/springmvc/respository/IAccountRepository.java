@@ -3,7 +3,6 @@ package com.WarningCriminal.springmvc.respository;
 
 import com.WarningCriminal.springmvc.pojo.Account;
 
-
 public interface IAccountRepository extends IGenericsRepository<Account,String> {
     boolean createAccount(Account account, Object o) throws Exception;
     boolean isUserNameExist(String userName);

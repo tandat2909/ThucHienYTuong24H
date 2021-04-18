@@ -3,6 +3,7 @@ package com.WarningCriminal.springmvc.respository.implement;
 
 import com.WarningCriminal.springmvc.pojo.Account;
 import com.WarningCriminal.springmvc.pojo.CongAn;
+import com.WarningCriminal.springmvc.pojo.Nguoidan;
 import com.WarningCriminal.springmvc.respository.Enum.ERole;
 import com.WarningCriminal.springmvc.respository.IAccountRepository;
 import com.WarningCriminal.springmvc.respository.ISysConfigRepository;
@@ -37,10 +38,16 @@ public class AccountRepository extends GenericsRepository<Account, String> imple
         if (isAccountValid(account)) {
             if (o instanceof CongAn) {
                 CongAn police = (CongAn) o;
+                police.setId(UUID.randomUUID().toString());
                 police.setAccount(account);
                 account.setRoleId(ERole.ROLE_CONGAN.name());
             }
-
+            if(o instanceof Nguoidan){
+                Nguoidan nd = (Nguoidan) o;
+                nd.setId(UUID.randomUUID().toString());
+                nd.setAccount(account);
+                account.setRoleId(ERole.ROLE_NGUOIDAN.name());
+            }
             account.setPw(bCryptPasswordEncoder.encode(account.getPw()));
             account.setId(UUID.randomUUID().toString());
             // kích hoạt tài khoản

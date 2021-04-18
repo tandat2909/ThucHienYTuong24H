@@ -11,6 +11,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.lang.reflect.Field;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -59,9 +60,14 @@ public class AccountService extends GenericsService<Account, String> implements 
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 
         Account users = null;
+
         try {
+            for (Field f :Account.class.getDeclaredFields()) System.out.println(f.getName());
             users = getElementsByKeyWordOnField(username, Account.class.getDeclaredField("userName")).get(0);
+
         } catch (NoSuchFieldException e) {
+            e.printStackTrace();
+        }catch (Exception e){
             e.printStackTrace();
         }
         if (users == null)

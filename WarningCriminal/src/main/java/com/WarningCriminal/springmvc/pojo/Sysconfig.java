@@ -21,7 +21,6 @@ public class Sysconfig implements Serializable {
         this.key = key;
     }
 
-    @Basic
     @Column(name = "value", nullable = false, length = 100)
     public String getValue() {
         return value;

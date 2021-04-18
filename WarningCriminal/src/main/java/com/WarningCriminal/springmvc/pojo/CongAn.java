@@ -7,17 +7,23 @@ import java.util.Objects;
 @Entity
 @Table(name = "congan")
 public class CongAn implements Serializable {
+    @Id
+    @Column(name = "id", nullable = false, length = 100)
     private String id;
+    @Column(name = "HovaTen", nullable = false, length = 50)
     private String hovaTen;
+    @Column(name = "soHieuQuanNhan", nullable = false, length = 50)
     private String soHieuQuanNhan;
+    @Column(name = "email", nullable = true, length = 100)
     private String email;
+    @Column(name = "sdt", nullable = true, length = 40)
     private String sdt;
-    private String accountId;
+
+    @ManyToOne
+    @JoinColumn(name = "accountID", nullable = false)
     private Account account;
 
-    @Id
-    @GeneratedValue
-    @Column(name = "id", nullable = false, length = 100)
+
     public String getId() {
         return id;
     }
@@ -27,8 +33,7 @@ public class CongAn implements Serializable {
     }
 
 
-    @Basic
-    @Column(name = "HovaTen", nullable = false, length = 50)
+
     public String getHovaTen() {
         return hovaTen;
     }
@@ -37,8 +42,7 @@ public class CongAn implements Serializable {
         this.hovaTen = hovaTen;
     }
 
-    @Basic
-    @Column(name = "soHieuQuanNhan", nullable = false, length = 50)
+
     public String getSoHieuQuanNhan() {
         return soHieuQuanNhan;
     }
@@ -47,8 +51,7 @@ public class CongAn implements Serializable {
         this.soHieuQuanNhan = soHieuQuanNhan;
     }
 
-    @Basic
-    @Column(name = "email", nullable = true, length = 100)
+
     public String getEmail() {
         return email;
     }
@@ -57,8 +60,7 @@ public class CongAn implements Serializable {
         this.email = email;
     }
 
-    @Basic
-    @Column(name = "sdt", nullable = true, length = 40)
+
     public String getSdt() {
         return sdt;
     }
@@ -67,15 +69,8 @@ public class CongAn implements Serializable {
         this.sdt = sdt;
     }
 
-    @Basic
-    @Column(name = "accountID", nullable = false, length = 100)
-    public String getAccountId() {
-        return accountId;
-    }
 
-    public void setAccountId(String accountId) {
-        this.accountId = accountId;
-    }
+
 
     @Override
     public boolean equals(Object o) {
@@ -90,7 +85,7 @@ public class CongAn implements Serializable {
             return false;
         if (!Objects.equals(email, police.email)) return false;
         if (!Objects.equals(sdt, police.sdt)) return false;
-        if (!Objects.equals(accountId, police.accountId)) return false;
+
 
         return true;
     }
@@ -102,12 +97,11 @@ public class CongAn implements Serializable {
         result = 31 * result + (soHieuQuanNhan != null ? soHieuQuanNhan.hashCode() : 0);
         result = 31 * result + (email != null ? email.hashCode() : 0);
         result = 31 * result + (sdt != null ? sdt.hashCode() : 0);
-        result = 31 * result + (accountId != null ? accountId.hashCode() : 0);
+
         return result;
     }
 
-    @ManyToOne
-    @JoinColumn(name = "accountID", referencedColumnName = "id", nullable = false)
+
     public Account getAccount() {
         return account;
     }

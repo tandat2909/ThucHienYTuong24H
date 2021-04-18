@@ -8,13 +8,16 @@ import java.util.Objects;
 @Entity
 @Table(name = "mucdo")
 public class Mucdo implements Serializable {
+    @Id
+    @Column(name = "id", nullable = false, length = 100)
     private String id;
+    @Basic
+    @Column(name = "tenMucDo", nullable = false, length = 100)
     private String tenMucDo;
+    @OneToMany(mappedBy = "mucdo")
     private List<Toipham> toiphams;
 
-    @Id
-    @GeneratedValue
-    @Column(name = "id", nullable = false, length = 100)
+
     public String getId() {
         return id;
     }
@@ -24,8 +27,7 @@ public class Mucdo implements Serializable {
     }
 
 
-    @Basic
-    @Column(name = "tenMucDo", nullable = false, length = 100)
+
     public String getTenMucDo() {
         return tenMucDo;
     }
@@ -54,7 +56,7 @@ public class Mucdo implements Serializable {
         return result;
     }
 
-    @OneToMany(mappedBy = "mucdo")
+
     public List<Toipham> getToiphams() {
         return toiphams;
     }

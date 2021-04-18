@@ -2,16 +2,17 @@ package com.WarningCriminal.springmvc.modelView;
 
 import com.WarningCriminal.springmvc.pojo.Account;
 import com.WarningCriminal.springmvc.pojo.CongAn;
+import com.WarningCriminal.springmvc.pojo.Nguoidan;
 
 import java.io.Serializable;
 import java.sql.Date;
 
 public class InforAccount implements Serializable{
 
-   // @Pattern(regexp = "[a-zA-Z0-9]{5,}" , message = "{account.username.error}")
+    // @Pattern(regexp = "[a-zA-Z0-9]{5,}" , message = "{account.username.error}")
     String userName;
 
-   // @Pattern(regexp = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$", message = "{account.password.error}")
+    // @Pattern(regexp = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$", message = "{account.password.error}")
     String password;
     String confirmPassword;
 
@@ -21,11 +22,12 @@ public class InforAccount implements Serializable{
     String ngaysinh;
 
     String CCID;
-   // @Pattern(regexp = "(84|0[3|5|7|8|9])+([0-9]{8})\\b", message = "{customer.phoneNumber.error}")
+    // @Pattern(regexp = "(84|0[3|5|7|8|9])+([0-9]{8})\\b", message = "{customer.phoneNumber.error}")
     String phoneNumber;
     //@Pattern(regexp = "[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,}$",message = "{account.email.error}")
     String email;
     String sohieuquannhan;
+    String diachi;
 
     public String getUserName() {
         return userName;
@@ -105,13 +107,21 @@ public class InforAccount implements Serializable{
         ac.setConfirmPw(confirmPassword);
         return ac;
     }
-    public CongAn getCustomer(){
+    public CongAn getCongAn(){
         CongAn ca = new CongAn();
         ca.setHovaTen(hovaten);
         ca.setEmail(email);
         ca.setSdt(phoneNumber);
         ca.setSoHieuQuanNhan(sohieuquannhan);
         return ca;
+    }
+    public Nguoidan getNguoiDan(){
+        Nguoidan nd = new Nguoidan();
+        nd.setHovaTen(hovaten);
+        nd.setCccd(CCID);
+        nd.setDiachi(diachi);
+
+        return nd;
     }
 
 

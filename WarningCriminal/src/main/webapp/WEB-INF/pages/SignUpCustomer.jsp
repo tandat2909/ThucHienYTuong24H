@@ -49,33 +49,29 @@
                             <p>Create your account here, and continue </p>
                         </div>
                         <div class="form-group">
-                            <label for="firstName" class="input__label">First name</label>
-                            <input name="firstName" value="${users.firstName}" type="text"  class="form-control login_text_field_bg input-style" id="firstName" aria-describedby="emailHelp" placeholder="First name" required="" autofocus="" />
-                        </div>
-                        <div class="form-group">
-                            <label for="lastName" class="input__label">Last name</label>
-                            <input name="lastName" value="${users.lastName}" type="text"  class="form-control login_text_field_bg input-style" id="lastName" aria-describedby="emailHelp" placeholder="Last name" required="" autofocus="" />
+                            <label for="firstName" class="input__label">Họ và Tên</label>
+                            <input name="firstName" value="${users.hovaten}" type="text"  class="form-control login_text_field_bg input-style" id="firstName" aria-describedby="emailHelp" placeholder="Họ và Tên" required="" autofocus="" />
                         </div>
                         <div class="form-group">
                             <label for="username" class="input__label">User name</label>
                             <input name="userName" value="${users.userName}" type="text" pattern="[a-zA-Z0-9]{5,}" class="form-control login_text_field_bg input-style" id="username" aria-describedby="emailHelp" placeholder="User name" required="" autofocus="" />
                         </div>
-                        <div class="form-group">
-                            <label for="email" class="input__label">Email</label>
-                            <input name="email"  value="${users.email}" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" type="email" class="form-control login_text_field_bg input-style" id="email" aria-describedby="emailHelp" placeholder="Email" required=""/>
-                        </div>
+<%--                        <div class="form-group">--%>
+<%--                            <label for="email" class="input__label">Email</label>--%>
+<%--                            <input name="email"  value="${users.email}" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" type="email" class="form-control login_text_field_bg input-style" id="email" aria-describedby="emailHelp" placeholder="Email" required=""/>--%>
+<%--                        </div>--%>
                         <div class="form-group">
                             <label for="ccid" class="input__label">CCID</label>
                             <input name="CCID" value="${users.CCID}" pattern="[0-9]{9}|[0-9]{12}" title="căng cước công dân 9 hoặc 12 số" type="text" class="form-control login_text_field_bg input-style" id="ccid" aria-describedby="emailHelp" placeholder="CCID" required=""/>
                         </div>
-                        <div class="form-group">
-                            <label for="phoneNumber" class="input__label">Phone Number</label>
-                            <input name="phoneNumber" value="${users.phoneNumber}" pattern="(84|0[3|2|5|7|8|9])+([0-9]{8})\b" title="Số điện thoại bắt đầu (84 , 03 ,05 , 07 , 09, 02) và 9 số tiếp theo" type="text"  class="form-control login_text_field_bg input-style" id="phoneNumber" aria-describedby="emailHelp" placeholder="Phone Number" required="" autofocus="" />
-                        </div>
-                        <div class="form-group">
-                            <label for="birthdate" class="input__label">Birth Date</label>
-                            <input name="birthDay"  value="${users.birthDay}" type="date" class="form-control login_text_field_bg input-style" id="birthdate" aria-describedby="emailHelp" placeholder="BirthDate" required=""/>
-                        </div>
+<%--                        <div class="form-group">--%>
+<%--                            <label for="phoneNumber" class="input__label">Phone Number</label>--%>
+<%--                            <input name="phoneNumber" value="${users.phoneNumber}" pattern="(84|0[3|2|5|7|8|9])+([0-9]{8})\b" title="Số điện thoại bắt đầu (84 , 03 ,05 , 07 , 09, 02) và 9 số tiếp theo" type="text"  class="form-control login_text_field_bg input-style" id="phoneNumber" aria-describedby="emailHelp" placeholder="Phone Number" required="" autofocus="" />--%>
+<%--                        </div>--%>
+<%--                        <div class="form-group">--%>
+<%--                            <label for="birthdate" class="input__label">Birth Date</label>--%>
+<%--                            <input name="birthDay"  value="${users.birthDay}" type="date" class="form-control login_text_field_bg input-style" id="birthdate" aria-describedby="emailHelp" placeholder="BirthDate" required=""/>--%>
+<%--                        </div>--%>
 
                         <div class="form-group">
                             <label for="password" class="input__label">Password</label>

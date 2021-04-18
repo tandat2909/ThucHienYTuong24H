@@ -7,14 +7,17 @@ import java.util.*;
 @Entity
 @Table(name = "role")
 public class Role  implements Serializable {
+    @Id
+    @Column(name = "id", nullable = false, length = 100)
     private String id;
+    @Column(name = "name", nullable = false, length = 100)
     private String name;
+    @Column(name = "description", nullable = true)
     private String description;
+    @OneToMany(mappedBy = "role")
     private List<Account> accounts;
 
-    @Id
-    @GeneratedValue
-    @Column(name = "id", nullable = false, length = 100)
+
     public String getId() {
         return id;
     }
@@ -24,8 +27,7 @@ public class Role  implements Serializable {
     }
 
 
-    @Basic
-    @Column(name = "name", nullable = false, length = 100)
+
     public String getName() {
         return name;
     }
@@ -34,8 +36,7 @@ public class Role  implements Serializable {
         this.name = name;
     }
 
-    @Basic
-    @Column(name = "description", nullable = true)
+
     public String getDescription() {
         return description;
     }
@@ -65,12 +66,21 @@ public class Role  implements Serializable {
         return result;
     }
 
-    @OneToMany(mappedBy = "role")
+
     public List<Account> getAccounts() {
         return accounts;
     }
 
     public void setAccounts(List<Account> accounts) {
         this.accounts = accounts;
+    }
+
+    @Override
+    public String toString() {
+        return "Role{" +
+                "id='" + id + '\'' +
+                ", name='" + name + '\'' +
+                ", description='" + description + '\'' +
+                '}';
     }
 }

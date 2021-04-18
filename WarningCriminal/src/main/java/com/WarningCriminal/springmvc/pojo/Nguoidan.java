@@ -9,18 +9,25 @@ import java.util.Set;
 @Entity
 @Table(name = "nguoidan")
 public class Nguoidan implements Serializable {
+    @Id
+    @Column(name = "id", nullable = false, length = 100)
     private String id;
+    @Column(name = "HovaTen", nullable = true, length = 45)
     private String hovaTen;
+    @Column(name = "CCCD", nullable = true, length = 45)
     private String cccd;
+    @Column(name = "trangthaixacthucnguoidan", nullable = false)
     private boolean trangthaixacthucnguoidan;
+    @Column(name = "diachi", nullable = true, length = 100)
     private String diachi;
-    private String accountId;
+
+    @ManyToOne
+    @JoinColumn(name = "account_id", nullable = false)
     private Account account;
+    @OneToMany(mappedBy = "nguoidan")
     private List<Tintinhbao> tintinhbaos;
 
-    @Id
-    @GeneratedValue
-    @Column(name = "id", nullable = false, length = 100)
+
     public String getId() {
         return id;
     }
@@ -31,8 +38,7 @@ public class Nguoidan implements Serializable {
 
 
 
-    @Basic
-    @Column(name = "HovaTen", nullable = true, length = 45)
+
     public String getHovaTen() {
         return hovaTen;
     }
@@ -41,8 +47,8 @@ public class Nguoidan implements Serializable {
         this.hovaTen = hovaTen;
     }
 
-    @Basic
-    @Column(name = "CCCD", nullable = true, length = 45)
+
+
     public String getCccd() {
         return cccd;
     }
@@ -51,8 +57,7 @@ public class Nguoidan implements Serializable {
         this.cccd = cccd;
     }
 
-    @Basic
-    @Column(name = "trangthaixacthucnguoidan", nullable = false)
+
     public boolean getTrangthaixacthucnguoidan() {
         return trangthaixacthucnguoidan;
     }
@@ -61,8 +66,8 @@ public class Nguoidan implements Serializable {
         this.trangthaixacthucnguoidan = trangthaixacthucnguoidan;
     }
 
-    @Basic
-    @Column(name = "diachi", nullable = true, length = 100)
+
+
     public String getDiachi() {
         return diachi;
     }
@@ -71,15 +76,8 @@ public class Nguoidan implements Serializable {
         this.diachi = diachi;
     }
 
-    @Basic
-    @Column(name = "account_id", nullable = false, length = 100)
-    public String getAccountId() {
-        return accountId;
-    }
 
-    public void setAccountId(String accountId) {
-        this.accountId = accountId;
-    }
+
 
     @Override
     public boolean equals(Object o) {
@@ -93,7 +91,7 @@ public class Nguoidan implements Serializable {
         if (!Objects.equals(hovaTen, nguoidan.hovaTen)) return false;
         if (!Objects.equals(cccd, nguoidan.cccd)) return false;
         if (!Objects.equals(diachi, nguoidan.diachi)) return false;
-        if (!Objects.equals(accountId, nguoidan.accountId)) return false;
+
 
         return true;
     }
@@ -104,12 +102,11 @@ public class Nguoidan implements Serializable {
         result = 31 * result + (hovaTen != null ? hovaTen.hashCode() : 0);
         result = 31 * result + (cccd != null ? cccd.hashCode() : 0);
         result = 31 * result + (diachi != null ? diachi.hashCode() : 0);
-        result = 31 * result + (accountId != null ? accountId.hashCode() : 0);
+
         return result;
     }
 
-    @ManyToOne
-    @JoinColumn(name = "account_id", referencedColumnName = "id", nullable = false)
+
     public Account getAccount() {
         return account;
     }
@@ -118,7 +115,7 @@ public class Nguoidan implements Serializable {
         this.account = account;
     }
 
-    @OneToMany(mappedBy = "nguoidan")
+
     public List<Tintinhbao> getTintinhbaos() {
         return tintinhbaos;
     }

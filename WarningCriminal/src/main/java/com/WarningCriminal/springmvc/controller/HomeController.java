@@ -15,30 +15,7 @@ public class HomeController {
         return "TrangChu";
     }
 
-    @RequestMapping("/About")
-    public String About(Model model) {
-        return "About";
-    }
 
-    @RequestMapping("/Services")
-    public String Services(Model model) {
-        return "Services";
-    }
-
-    @RequestMapping("/Packages")
-    public String Packages(Model model) {
-        return "Packages";
-    }
-
-    @RequestMapping("/Contact")
-    public String Contact(Model model) {
-        return "Contact";
-    }
-
-    @RequestMapping("/Booking")
-    public String Booking(Model model) {
-        return "Booking";
-    }
 
 
 
