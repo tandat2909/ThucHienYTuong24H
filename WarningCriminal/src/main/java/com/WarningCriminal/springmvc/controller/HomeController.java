@@ -39,6 +39,7 @@ public class HomeController {
             e.printStackTrace();;
         }
         model.addAttribute("lstoipham",toiPhamService.getAll());
+        model.addAttribute("account",ac);
         return "TrangChu";
     }
     @RequestMapping(value = "/chitiettoipham")
