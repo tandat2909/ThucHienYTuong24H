@@ -80,7 +80,7 @@
 </section>
 
 <section id="intro" class="intro">
-    <div class="intro-content">
+    <div class="intro-content" id="guitintinhbao">
         <div class="container">
             <div class="row">
                 <div class="col-lg-6">

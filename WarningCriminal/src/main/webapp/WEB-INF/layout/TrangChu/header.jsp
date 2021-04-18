@@ -26,11 +26,15 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="#intro">Trang chủ</a></li>
-                <li><a href="#guitinhbao">Gửi Tình Báo</a></li>
+                <li class="active"><a href="#doctor">Trang chủ</a></li>
+                <c:if test="${pageContext.request.userPrincipal.name != null}">
+                    <li><a href="#guitintinhbao">Gửi Tình Báo</a></li>
+                </c:if>
+               ${pageContext.request}
                 <li><a href="#doctor">Tội Phạm Truy Nã</a></li>
+
                 <li><a href="#facilities">Đăng tin truy nã</a></li>
-                <li><a href="#facilities">Login</a></li>
+                <li><a href="${pageContext.request.contextPath}/login">Login</a></li>
             </ul>
         </div>
     </div>
