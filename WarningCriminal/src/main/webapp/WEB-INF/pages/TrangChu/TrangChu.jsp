@@ -9,7 +9,7 @@
                 <div class="wow fadeInDown" data-wow-delay="0.1s">
                     <div class="section-heading text-center">
                         <h2 class="h-bold">Danh sách tội phạm</h2>
-                        <p>Cung cấp thông thin tội phạm</p>
+                        <p>Cung cấp thông tin tội phạm</p>
                     </div>
                 </div>
                 <div class="divider-short"></div>

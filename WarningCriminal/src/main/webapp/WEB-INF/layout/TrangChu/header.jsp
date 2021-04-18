@@ -34,7 +34,7 @@
                 </c:if>
 <%--               <jsp:useBean id="account" scope="request" type="com.WarningCriminal.springmvc.pojo.Account"/>--%>
                 <c:if test="${account.roleId  == 'ROLE_CONGAN' }">
-                    <li><a href="#facilities">Đăng tin truy nã</a></li>
+                    <li><a href="${pageContext.request.contextPath}/dang-tin-truy-na">Đăng tin truy nã</a></li>
                 </c:if>
                 <c:if test="${account != null}">
                     <li><a href="${pageContext.request.contextPath}/#">${account.userName}</a></li>
