@@ -30,5 +30,8 @@ Software Foundation//DTD Tiles Configuration 3.0//EN"
     <definition name="chitiettoipham" template="/WEB-INF/pages/TrangChu/chitiettoipham.jsp">
 
     </definition>
+    <definition name="dang-tin-truy-na" template = "/WEB-INF/pages/TrangChu/dang-tin-truy-na.jsp">
+
+    </definition>
 
 </tiles-definitions>

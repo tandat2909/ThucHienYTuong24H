@@ -71,6 +71,10 @@ public class HomeController {
 
         return "redirect:/";
     }
+    @RequestMapping(value = "/dang-tin-truy-na")
+    public String dangTinTruyNa(Model model){
+        return "dang-tin-truy-na";
+    }
 
 
 

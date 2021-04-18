@@ -26,15 +26,26 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="#doctor">Trang chủ</a></li>
-                <c:if test="${pageContext.request.userPrincipal.name != null}">
+
+
+                <li><a href="#doctor">Tội Phạm Truy Nã</a></li>
+                <c:if test="${account != null}">
                     <li><a href="#guitintinhbao">Gửi Tình Báo</a></li>
                 </c:if>
-               ${pageContext.request}
-                <li><a href="#doctor">Tội Phạm Truy Nã</a></li>
+<%--               <jsp:useBean id="account" scope="request" type="com.WarningCriminal.springmvc.pojo.Account"/>--%>
+                <c:if test="${account.roleId  == 'ROLE_CONGAN' }">
+                    <li><a href="#facilities">Đăng tin truy nã</a></li>
+                </c:if>
+                <c:if test="${account != null}">
+                    <li><a href="${pageContext.request.contextPath}/#">${account.userName}</a></li>
+                </c:if>
+                <c:if test="${account == null}">
+                    <li><a href="${pageContext.request.contextPath}/login">Login</a></li>
+                </c:if>
+                <c:if test="${account != null}">
+                    <li><a href="${pageContext.request.contextPath}/logout">Logout</a></li>
+                </c:if>
 
-                <li><a href="#facilities">Đăng tin truy nã</a></li>
-                <li><a href="${pageContext.request.contextPath}/login">Login</a></li>
             </ul>
         </div>
     </div>
