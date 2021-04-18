@@ -27,5 +27,8 @@ Software Foundation//DTD Tiles Configuration 3.0//EN"
     <definition name="template_signup" template="/WEB-INF/pages/SignUpCustomer.jsp" >
         <put-attribute name="title" value="Sign Up"/>
     </definition>
+    <definition name="chitiettoipham" template="/WEB-INF/pages/TrangChu/chitiettoipham.jsp">
+
+    </definition>
 
 </tiles-definitions>
